@@ -10,5 +10,14 @@
   <%= @post.body %>
 </p>
 
+<div id="comments">
+  <h1>Comments</h1>
+  <%= render @post.comments %>
+  <h2>Add a comment</h2>
+  <%= render partial: "comments/form" , locals: {comment: @post.comments.new} %>
+  <% # render partial: "comments/comment", collection: @post.comments %>
+  <% # , as: :comment since partial is named comment, comment will be a local variable %>
+</div>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
